@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import styles from '../src/styles/Signup.module.css';
+import styles from '../styles/Signup.module.css';
 
 interface User {
   name: string;
@@ -41,15 +41,16 @@ export default function Signup() {
   };
 
   return (
-    <>
-      <form className={styles.signupForm} onSubmit={handleSignup}>
-        <input type="text" name="name" value={user.name} onChange={handleChange} placeholder="Your name..." />
-        <input type="email" name="email" value={user.email} onChange={handleChange} placeholder="Your email..." />
-        <input type="password" name="password" value={password} onChange={handlePasswordChange} placeholder="Your password..." />
-        <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleConfirmPasswordChange} placeholder="Confirm your password..." />
-        <input type="text" name="bio" value={user.bio} onChange={handleChange} placeholder="Your bio..." />
-        <button type="submit">Submit</button>
-      </form>
-    </>
+      <>
+        <h1 className={styles.title}>Signup Form</h1>
+        <form className={styles.signupForm} onSubmit={handleSignup}>
+          <input type="text" name="name" value={user.name} onChange={handleChange} placeholder="Your name..." className={styles['input-text']} />
+          <input type="email" name="email" value={user.email} onChange={handleChange} placeholder="Your email..." className={styles['input-email']} />
+          <input type="password" name="password" value={password} onChange={handlePasswordChange} placeholder="Your password..." className={styles['input-password']} />
+          <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleConfirmPasswordChange} placeholder="Confirm your password..." className={styles['input-password']} />
+          <input type="text" name="bio" value={user.bio} onChange={handleChange} placeholder="Your bio..." className={styles['input-text']} />
+          <button type="submit" className={styles['signup-button']}>Submit</button>
+        </form>
+      </>
   );
 }
