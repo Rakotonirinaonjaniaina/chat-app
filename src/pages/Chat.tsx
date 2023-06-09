@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/chat.module.css';
+import styles from '../styles/Chat.module.css';
 
 const Chat = () => {
     const [user, setUser] = useState<any>(null);
@@ -14,7 +14,7 @@ const Chat = () => {
 
     const renderUserDetails = () => {
         return (
-            <div>
+            <div className={styles.userDetails}>
                 <h2>Welcome, {user.name}!</h2>
                 <p>Email: {user.email}</p>
                 {user.bio && <p>Bio: {user.bio}</p>}
@@ -24,32 +24,34 @@ const Chat = () => {
 
     const renderLoginForm = () => {
         return (
-            <form>
+            <form className={styles.loginForm}>
                 <h2>Please log in to use the chat.</h2>
-                <div>
+                <div className={styles.formField}>
                     <label htmlFor="email">Email:</label>
                     <input type="email" id="email" name="email" required />
                 </div>
-                <div>
+                <div className={styles.formField}>
                     <label htmlFor="password">Password:</label>
                     <input type="password" id="password" name="password" required />
                 </div>
-                <button type="submit">Log in</button>
+                <button type="submit" className={styles.loginButton}>
+                    Log in
+                </button>
             </form>
         );
     };
 
     const renderChatContent = () => {
         return (
-            <div>
+            <div className={styles.chatContent}>
                 {/* Ajoutez ici le contenu du chat, par exemple, une liste de messages */}
             </div>
         );
     };
 
     return (
-        <div>
-            <h1>Chat</h1>
+        <div className={styles.chatContainer}>
+            <h1 className={styles.title}>Chat</h1>
             {user ? renderUserDetails() : renderLoginForm()}
             {user && renderChatContent()}
         </div>
