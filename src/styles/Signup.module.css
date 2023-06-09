@@ -1,60 +1,86 @@
-.title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(45deg, #ff4e50, #f9d423, #ff4e50);
+  background-size: 300% 300%;
+  animation: gradientAnimation 10s ease infinite;
 }
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
 .signupForm {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 2rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .input-text,
 .input-email,
 .input-password {
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  border-radius: 4px;
 }
 
 .input-text:focus,
 .input-email:focus,
 .input-password:focus {
   outline: none;
-  border-color: #0070f3;
-  box-shadow: 0 0 5px rgba(0, 112, 243, 0.5);
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 .signup-button {
-  width: 100%;
-  margin-top: 1rem;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 0.25rem;
-  background-color: #0070f3;
+  width: 150px;
+  height: 40px;
+  background-color: #007bff;
   color: #fff;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease;
 }
 
 .signup-button:hover {
-  background-color: #0062cc;
+  background-color: #0056b3;
 }
 
-.label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+.signup-button:active {
+  background-color: #004f9b;
 }

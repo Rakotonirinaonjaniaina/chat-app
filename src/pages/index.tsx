@@ -1,25 +1,11 @@
-// index.tsx
-import Head from 'next/head';
-import Image from 'next/image';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.css';
-import Signin from './Signin';
+import Head from 'next/head'
+import Image from 'next/image'
+import { Inter } from 'next/font/google'
+import styles from '@/styles/Home.module.css'
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.prefetch('/signin');
-  }, []);
-
-  const handleSignInClick = () => {
-    router.push('/signin');
-  };
-
   return (
       <>
         <Head>
@@ -107,12 +93,22 @@ export default function Home() {
               </p>
             </a>
 
-            <div className={styles.card} onClick={handleSignInClick}>
-              <h2>Sign In</h2>
-              <p>Sign in to your account</p>
-            </div>
+            <a
+                href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+                className={styles.card}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+              <h2>
+                Deploy <span>-&gt;</span>
+              </h2>
+              <p>
+                Instantly deploy your Next.js site to a shareable URL
+                with&nbsp;Vercel.
+              </p>
+            </a>
           </div>
         </main>
       </>
-  );
+  )
 }
