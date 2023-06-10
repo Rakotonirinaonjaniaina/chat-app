@@ -1,14 +1,23 @@
-.messagePage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(45deg, #ff4e50, #f9d423, #ff4e50);
+    background-size: 300% 300%;
+    animation: gradientAnimation 10s ease infinite;
 }
 
-.title {
-    text-align: center;
-    font-size: 2rem;
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

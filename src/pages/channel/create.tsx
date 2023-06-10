@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import styles from '../../styles/createChannel.module.css';
 
 export default function CreateChannel() {
     const router = useRouter();
@@ -18,12 +19,20 @@ export default function CreateChannel() {
     };
 
     return (
-        <>
-            <h1>Create Channel</h1>
-            <form onSubmit={handleCreateChannel}>
-                <input type="text" value={channelName} onChange={handleChannelNameChange} placeholder="Channel Name" />
-                <button type="submit">Create</button>
-            </form>
-        </>
+        <div className={styles.background}>
+            <div className={styles.container}>
+                <h1 className={styles.title}>Create Channel</h1>
+                <form className={styles.form} onSubmit={handleCreateChannel}>
+                    <input
+                        type="text"
+                        value={channelName}
+                        onChange={handleChannelNameChange}
+                        placeholder="Channel Name"
+                        className={styles.input}
+                    />
+                    <button type="submit" className={styles.button}>Create</button>
+                </form>
+            </div>
+        </div>
     );
 }

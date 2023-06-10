@@ -1,20 +1,23 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import styles from '../../styles/channelEdit.module.css';
 
-export default function Channel() {
+export default function ChannelEdit() {
     const router = useRouter();
     const { channel_id } = router.query;
 
-    const handleDeleteChannel = () => {
-        // Code to delete channel
+    const handleSaveChanges = () => {
+        // Code to save changes
 
-        router.push('/channel/create');
+        router.push('/channel/edit/[channel_id]', `/channel/edit/${channel_id}`);
     };
 
     return (
-        <>
-            <h1>Channel {channel_id}</h1>
-            <button onClick={handleDeleteChannel}>Delete Channel</button>
-        </>
+        <div className={styles.background}>
+            <div className={styles.container}>
+                <h1 className={styles.title}>Edit Channel {channel_id}</h1>
+                <button className={styles.saveButton} onClick={handleSaveChanges}>Save Changes</button>
+            </div>
+        </div>
     );
 }

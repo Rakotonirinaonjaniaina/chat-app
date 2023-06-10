@@ -50,7 +50,7 @@ const Chat = () => {
     };
 
     return (
-        <div className={styles.chatContainer}>
+        <div className={`${styles.container} ${styles.background}`}>
             <h1 className={styles.title}>Chat</h1>
             {user ? renderUserDetails() : renderLoginForm()}
             {user && renderChatContent()}
